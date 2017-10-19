@@ -1,7 +1,7 @@
 flow:
   - envs:
      FLOW_AGENT_WORKSPACE: "${HOME}/agent-workspace"
-     FLOW_OUTPUT_ENV_PREFIX: "IOS_OUTPUT_"
+     FLOW_ENV_OUTPUT_PREFIX: "IOS_OUTPUT_"
      IOS_PROJECT_NAME: "flowcidemo"
      IOS_SCHEME: "flowclibasic"
      IOS_EXPORT_METHOD: "development"
@@ -30,7 +30,7 @@ flow:
           array=$(find ${IOS_IPA_DIR} -name *.ipa 2>&1)
           for file in ${array[@]}
           do
-            export IOS_OUTPUT_IPA_PATH=$file
+            export FLOW_ENV_OUTPUT_PREFIX=$file
           done
           
       - name: Print IPA Path
