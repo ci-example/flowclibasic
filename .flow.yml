@@ -1,0 +1,26 @@
+flow:
+  - envs:
+     IOS_PROJECT_NAME: "flowcidemo"
+     IOS_SCHEME: "flowclibasic"
+     IOS_EXPORT_METHOD: "development"
+     IOS_IPA_DIR: "./ipa_dir"
+     
+    steps:
+      - name: Git Clone
+        script: |
+          rm -r -f ${IOS_PROJECT_NAME}
+          git clone ${FLOW_GIT_URL} ${IOS_PROJECT_NAME}
+      
+      - name: Build
+        script: |
+          cd ${IOS_PROJECT_NAME}
+          fastlane gym --scheme ${IOS_SCHEME} --export_method ${IOS_EXPORT_METHOD} --output_directory ${IOS_IPA_DIR}
+      
+      - name: Get IPA
+        script: |
+          cd ${IOS_PROJECT_NAME}
+          array=$(find ${IOS_IPA_DIR} -name *.ipa 2>&1)
+          for file in ${array[@]}
+          do
+            echo $file 
+          done
