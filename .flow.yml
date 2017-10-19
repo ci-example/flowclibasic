@@ -30,7 +30,7 @@ flow:
           array=$(find ${IOS_IPA_DIR} -name *.ipa 2>&1)
           for file in ${array[@]}
           do
-            export FLOW_ENV_OUTPUT_PREFIX=$file
+            export IOS_OUTPUT_IPA_PATH=$file
           done
           
       - name: Print IPA Path
