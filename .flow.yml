@@ -1,5 +1,6 @@
 flow:
   - envs:
+     FLOW_AGENT_WORKSPACE: "${HOME}/agent-workspace"
      IOS_PROJECT_NAME: "flowcidemo"
      IOS_SCHEME: "flowclibasic"
      IOS_EXPORT_METHOD: "development"
