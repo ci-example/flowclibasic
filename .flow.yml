@@ -15,6 +15,7 @@ flow:
       - name: Pods Install
         allowFailure: true
         script: |
+          export LANG=en_US.UTF-8
           pod install --no-repo-update
       
       - name: Build
