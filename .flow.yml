@@ -11,6 +11,11 @@ flow:
         script: |
           rm -r -f ${IOS_PROJECT_NAME}
           git clone ${FLOW_GIT_URL} ${IOS_PROJECT_NAME}
+          
+      - name: Pods Install
+        allowFailure: true
+        script: |
+          pod install --no-repo-update
       
       - name: Build
         script: |
